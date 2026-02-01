@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trip Spend Log</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="hero__glow"></div>
+      <div class="hero__content">
+        <p class="hero__eyebrow">cal — trip money tracker</p>
+        <h1>Keep every travel expense in one beautiful, calm ledger.</h1>
+        <p class="hero__sub">Track by day, category, and currency. Everything stays on your device.</p>
+      </div>
+      <div class="hero__stats" id="heroStats">
+        <div class="stat">
+          <span class="stat__label">Days logged</span>
+          <span class="stat__value" id="statDays">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat__label">Entries</span>
+          <span class="stat__value" id="statEntries">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat__label">Total spend</span>
+          <span class="stat__value" id="statTotal">—</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="card card--primary">
+        <div class="card__header">
+          <h2>Trip details</h2>
+          <p class="card__hint">Set the vibe of your ledger and a rough budget.</p>
+        </div>
+        <form class="form" id="tripForm">
+          <label>
+            Trip name
+            <input type="text" name="tripName" placeholder="Osaka winter escape" />
+          </label>
+          <div class="form__row">
+            <label>
+              Start date
+              <input type="date" name="tripStart" />
+            </label>
+            <label>
+              End date
+              <input type="date" name="tripEnd" />
+            </label>
+          </div>
+          <div class="form__row">
+            <label>
+              Budget (optional)
+              <input type="number" name="tripBudget" min="0" step="0.01" placeholder="1500" />
+            </label>
+            <label>
+              Budget currency
+              <select name="tripCurrency">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="JPY">JPY</option>
+                <option value="GBP">GBP</option>
+                <option value="TWD">TWD</option>
+                <option value="KRW">KRW</option>
+                <option value="CNY">CNY</option>
+              </select>
+            </label>
+          </div>
+          <button class="btn" type="submit">Save trip details</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="card__header">
+          <h2>Add an expense</h2>
+          <p class="card__hint">Log every purchase, no matter how small.</p>
+        </div>
+        <form class="form" id="expenseForm">
+          <div class="form__row">
+            <label>
+              Date
+              <input type="date" name="date" required />
+            </label>
+            <label>
+              Amount
+              <input type="number" name="amount" min="0" step="0.01" placeholder="24.50" required />
+            </label>
+          </div>
+          <div class="form__row">
+            <label>
+              Currency
+              <select name="currency">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="JPY">JPY</option>
+                <option value="GBP">GBP</option>
+                <option value="TWD">TWD</option>
+                <option value="KRW">KRW</option>
+                <option value="CNY">CNY</option>
+              </select>
+            </label>
+            <label>
+              Category
+              <select name="category">
+                <option value="Food">Food</option>
+                <option value="Transit">Transit</option>
+                <option value="Lodging">Lodging</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Tickets">Tickets</option>
+                <option value="Coffee">Coffee</option>
+                <option value="Cash">Cash</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+          </div>
+          <div class="form__row">
+            <label>
+              Payment method
+              <select name="payment">
+                <option value="Card">Card</option>
+                <option value="Cash">Cash</option>
+                <option value="Transit Card">Transit Card</option>
+                <option value="Mobile">Mobile</option>
+              </select>
+            </label>
+            <label>
+              Note
+              <input type="text" name="note" placeholder="ramen + gyoza" />
+            </label>
+          </div>
+          <button class="btn" type="submit">Add expense</button>
+        </form>
+      </section>
+
+      <section class="card card--wide">
+        <div class="card__header">
+          <h2>Overview</h2>
+          <p class="card__hint">Totals update instantly as you log expenses.</p>
+        </div>
+        <div class="overview" id="overview"></div>
+      </section>
+
+      <section class="card card--wide">
+        <div class="card__header">
+          <h2>Expense log</h2>
+          <div class="card__actions">
+            <button class="btn btn--ghost" id="exportCsv" type="button">Export CSV</button>
+            <button class="btn btn--ghost" id="clearAll" type="button">Clear all</button>
+          </div>
+        </div>
+        <div class="table" id="expenseTable"></div>
+      </section>
+    </main>
+  </div>
+
+  <template id="overviewTemplate">
+    <div class="overview__grid"></div>
+  </template>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
