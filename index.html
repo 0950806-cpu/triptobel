@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Trip Spend Log</title>
+  <title>旅費記錄</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -11,21 +11,21 @@
     <header class="hero">
       <div class="hero__glow"></div>
       <div class="hero__content">
-        <p class="hero__eyebrow">cal — trip money tracker</p>
-        <h1>Keep every travel expense in one beautiful, calm ledger.</h1>
-        <p class="hero__sub">Track by day, category, and currency. Everything stays on your device.</p>
+        <p class="hero__eyebrow">cal — 旅行記帳工具</p>
+        <h1>把每一筆旅費都留在一個清爽、安靜的帳本裡。</h1>
+        <p class="hero__sub">依日期、分類與幣別追蹤，資料全都留在你的裝置上。</p>
       </div>
       <div class="hero__stats" id="heroStats">
         <div class="stat">
-          <span class="stat__label">Days logged</span>
+          <span class="stat__label">已記錄天數</span>
           <span class="stat__value" id="statDays">0</span>
         </div>
         <div class="stat">
-          <span class="stat__label">Entries</span>
+          <span class="stat__label">筆數</span>
           <span class="stat__value" id="statEntries">0</span>
         </div>
         <div class="stat">
-          <span class="stat__label">Total spend</span>
+          <span class="stat__label">累計支出</span>
           <span class="stat__value" id="statTotal">—</span>
         </div>
       </div>
@@ -34,31 +34,31 @@
     <main class="grid">
       <section class="card card--primary">
         <div class="card__header">
-          <h2>Trip details</h2>
-          <p class="card__hint">Set the vibe of your ledger and a rough budget.</p>
+          <h2>旅程資訊</h2>
+          <p class="card__hint">設定你的帳本風格與大致預算。</p>
         </div>
         <form class="form" id="tripForm">
           <label>
-            Trip name
-            <input type="text" name="tripName" placeholder="Osaka winter escape" />
+            旅程名稱
+            <input type="text" name="tripName" placeholder="大阪冬季小旅行" />
           </label>
           <div class="form__row">
             <label>
-              Start date
+              開始日期
               <input type="date" name="tripStart" />
             </label>
             <label>
-              End date
+              結束日期
               <input type="date" name="tripEnd" />
             </label>
           </div>
           <div class="form__row">
             <label>
-              Budget (optional)
+              預算（選填）
               <input type="number" name="tripBudget" min="0" step="0.01" placeholder="1500" />
             </label>
             <label>
-              Budget currency
+              預算幣別
               <select name="tripCurrency">
                 <option value="USD">USD</option>
                 <option value="EUR">EUR</option>
@@ -70,29 +70,29 @@
               </select>
             </label>
           </div>
-          <button class="btn" type="submit">Save trip details</button>
+          <button class="btn" type="submit">儲存旅程資訊</button>
         </form>
       </section>
 
       <section class="card">
         <div class="card__header">
-          <h2>Add an expense</h2>
-          <p class="card__hint">Log every purchase, no matter how small.</p>
+          <h2>新增支出</h2>
+          <p class="card__hint">不管多小的花費都記下來。</p>
         </div>
         <form class="form" id="expenseForm">
           <div class="form__row">
             <label>
-              Date
+              日期
               <input type="date" name="date" required />
             </label>
             <label>
-              Amount
+              金額
               <input type="number" name="amount" min="0" step="0.01" placeholder="24.50" required />
             </label>
           </div>
           <div class="form__row">
             <label>
-              Currency
+              幣別
               <select name="currency">
                 <option value="USD">USD</option>
                 <option value="EUR">EUR</option>
@@ -104,52 +104,52 @@
               </select>
             </label>
             <label>
-              Category
+              分類
               <select name="category">
-                <option value="Food">Food</option>
-                <option value="Transit">Transit</option>
-                <option value="Lodging">Lodging</option>
-                <option value="Shopping">Shopping</option>
-                <option value="Tickets">Tickets</option>
-                <option value="Coffee">Coffee</option>
-                <option value="Cash">Cash</option>
-                <option value="Other">Other</option>
+                <option value="餐飲">餐飲</option>
+                <option value="交通">交通</option>
+                <option value="住宿">住宿</option>
+                <option value="購物">購物</option>
+                <option value="門票">門票</option>
+                <option value="咖啡">咖啡</option>
+                <option value="現金">現金</option>
+                <option value="其他">其他</option>
               </select>
             </label>
           </div>
           <div class="form__row">
             <label>
-              Payment method
+              付款方式
               <select name="payment">
-                <option value="Card">Card</option>
-                <option value="Cash">Cash</option>
-                <option value="Transit Card">Transit Card</option>
-                <option value="Mobile">Mobile</option>
+                <option value="卡片">卡片</option>
+                <option value="現金">現金</option>
+                <option value="交通卡">交通卡</option>
+                <option value="行動支付">行動支付</option>
               </select>
             </label>
             <label>
-              Note
-              <input type="text" name="note" placeholder="ramen + gyoza" />
+              備註
+              <input type="text" name="note" placeholder="拉麵＋煎餃" />
             </label>
           </div>
-          <button class="btn" type="submit">Add expense</button>
+          <button class="btn" type="submit">新增支出</button>
         </form>
       </section>
 
       <section class="card card--wide">
         <div class="card__header">
-          <h2>Overview</h2>
-          <p class="card__hint">Totals update instantly as you log expenses.</p>
+          <h2>概覽</h2>
+          <p class="card__hint">記帳後立即更新加總。</p>
         </div>
         <div class="overview" id="overview"></div>
       </section>
 
       <section class="card card--wide">
         <div class="card__header">
-          <h2>Expense log</h2>
+          <h2>支出明細</h2>
           <div class="card__actions">
-            <button class="btn btn--ghost" id="exportCsv" type="button">Export CSV</button>
-            <button class="btn btn--ghost" id="clearAll" type="button">Clear all</button>
+            <button class="btn btn--ghost" id="exportCsv" type="button">匯出 CSV</button>
+            <button class="btn btn--ghost" id="clearAll" type="button">清除全部</button>
           </div>
         </div>
         <div class="table" id="expenseTable"></div>
