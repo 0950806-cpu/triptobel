@@ -95,7 +95,7 @@ function renderOverview() {
   if (Object.keys(totalsByCurrency).length === 0) {
     const empty = document.createElement('div');
     empty.className = 'empty';
-    empty.textContent = 'No expenses yet. Add your first entry to see totals.';
+    empty.textContent = '目前沒有支出。新增第一筆記錄即可查看總計。';
     overview.appendChild(empty);
     return;
   }
@@ -104,7 +104,7 @@ function renderOverview() {
     const tile = document.createElement('div');
     tile.className = 'overview__tile';
     const budgetMatch = currency === state.trip.currency && state.trip.budget;
-    const title = budgetMatch ? `Total (${currency})` : `Total ${currency}`;
+    const title = budgetMatch ? `總計（${currency}）` : `總計 ${currency}`;
 
     tile.innerHTML = `
       <h3>${title}</h3>
@@ -115,7 +115,7 @@ function renderOverview() {
       const remaining = Math.max(0, Number(state.trip.budget) - total);
       const remainingEl = document.createElement('p');
       remainingEl.className = 'table__muted';
-      remainingEl.textContent = `Remaining: ${formatCurrency(remaining, currency)}`;
+      remainingEl.textContent = `剩餘：${formatCurrency(remaining, currency)}`;
       tile.appendChild(remainingEl);
     }
 
@@ -123,7 +123,7 @@ function renderOverview() {
     const categoryTotals = totalsByCategory[currency];
     const entries = Object.entries(categoryTotals).sort((a, b) => b[1] - a[1]);
     const snippet = entries.slice(0, 3)
-      .map(([name, value]) => `${name}: ${formatCurrency(value, currency)}`)
+      .map(([name, value]) => `${name}：${formatCurrency(value, currency)}`)
       .join(' · ');
     if (snippet) {
       const note = document.createElement('p');
@@ -144,7 +144,7 @@ function renderTable() {
   if (state.expenses.length === 0) {
     const empty = document.createElement('div');
     empty.className = 'empty';
-    empty.textContent = 'Your log is empty. Add expenses to build your travel ledger.';
+    empty.textContent = '目前沒有任何明細。新增支出來建立旅程帳本。';
     expenseTable.appendChild(empty);
     return;
   }
@@ -152,11 +152,11 @@ function renderTable() {
   const header = document.createElement('div');
   header.className = 'table__row table__row--header';
   header.innerHTML = `
-    <span>Date</span>
-    <span>Amount</span>
-    <span>Currency</span>
-    <span>Category</span>
-    <span>Note</span>
+    <span>日期</span>
+    <span>金額</span>
+    <span>幣別</span>
+    <span>分類</span>
+    <span>備註</span>
     <span></span>
   `;
   expenseTable.appendChild(header);
@@ -255,7 +255,7 @@ exportCsvBtn.addEventListener('click', () => {
     return;
   }
   const rows = [
-    ['Date', 'Amount', 'Currency', 'Category', 'Payment', 'Note']
+    ['日期', '金額', '幣別', '分類', '付款方式', '備註']
   ];
   state.expenses.forEach((item) => {
     rows.push([
@@ -278,7 +278,7 @@ exportCsvBtn.addEventListener('click', () => {
 });
 
 clearAllBtn.addEventListener('click', () => {
-  if (!confirm('Clear all trip data and expenses?')) {
+  if (!confirm('確定要清除所有旅程資料與支出嗎？')) {
     return;
   }
   state.trip = structuredClone(defaultState.trip);
