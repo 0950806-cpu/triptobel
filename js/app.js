@@ -13,11 +13,11 @@ const statTotal = document.querySelector('#statTotal');
 
 const defaultState = {
   trip: {
-    name: '',
-    start: '',
-    end: '',
+    name: '比利時教育旅行',
+    start: '2026-03-01',
+    end: '2026-03-16',
     budget: '',
-    currency: 'USD'
+    currency: 'EUR'
   },
   expenses: []
 };
@@ -290,6 +290,9 @@ clearAllBtn.addEventListener('click', () => {
 function seedDefaults() {
   if (!expenseForm.date.value) {
     expenseForm.date.value = new Date().toISOString().slice(0, 10);
+  }
+  if (!expenseForm.payment.value) {
+    expenseForm.payment.value = '現金';
   }
 }
 
