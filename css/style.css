@@ -286,6 +286,30 @@ input:focus, select:focus {
   justify-content: center;
 }
 
+.prep-list {
+  display: grid;
+  gap: 12px;
+}
+
+.prep-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid var(--outline);
+}
+
+.prep-item__name {
+  font-weight: 600;
+}
+
+.prep-item__price {
+  font-weight: 600;
+  color: var(--accent-dark);
+}
+
 .icon-btn {
   border: none;
   background: rgba(31, 26, 22, 0.08);
