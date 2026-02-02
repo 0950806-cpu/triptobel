@@ -176,7 +176,7 @@ body {
   gap: 12px;
 }
 
-input, select, textarea {
+input, select {
   padding: 12px 14px;
   border-radius: 14px;
   border: 1px solid var(--outline);
@@ -185,7 +185,7 @@ input, select, textarea {
   font-family: inherit;
 }
 
-input:focus, select:focus, textarea:focus {
+input:focus, select:focus {
   outline: 2px solid rgba(239, 51, 64, 0.3);
   border-color: rgba(239, 51, 64, 0.7);
 }

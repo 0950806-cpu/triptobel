@@ -18,8 +18,7 @@ const defaultState = {
     start: '2026-03-01',
     end: '2026-03-16',
     budget: '',
-    currency: 'EUR',
-    prepList: ''
+    currency: 'EUR'
   },
   expenses: []
 };
@@ -75,7 +74,6 @@ function renderTripForm() {
   tripForm.tripEnd.value = state.trip.end;
   tripForm.tripBudget.value = state.trip.budget;
   tripForm.tripCurrency.value = state.trip.currency;
-  tripForm.prepList.value = state.trip.prepList;
 }
 
 function renderOverview() {
@@ -224,8 +222,7 @@ tripForm.addEventListener('submit', (event) => {
     start: tripForm.tripStart.value,
     end: tripForm.tripEnd.value,
     budget: tripForm.tripBudget.value,
-    currency: tripForm.tripCurrency.value,
-    prepList: tripForm.prepList.value.trim()
+    currency: tripForm.tripCurrency.value
   };
   saveState();
   renderAll();
